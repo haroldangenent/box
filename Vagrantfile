@@ -24,7 +24,7 @@ Vagrant.configure(2) do |config|
   # Provisioning
   config.vm.provision :shell, inline: "bash /vagrant/provision/php/install-php7.sh"
   config.vm.provision :shell, inline: "bash /vagrant/provision/db/import.sh"
-  config.vm.provision :shell, inline: "sudo service apache2 reload", run: "always"
+  config.vm.provision :shell, inline: "bash /vagrant/provision/vhosts/load.sh", run: "always"
 
   # Triggers
   config.trigger.before [:halt, :destroy] do
