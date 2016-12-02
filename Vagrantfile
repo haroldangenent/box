@@ -6,6 +6,13 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder "sites/", "/etc/apache2/sites-available"
   config.vm.synced_folder "sites/", "/etc/apache2/sites-enabled"
 
+  # Virtualbox config
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--memory", 2048]
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+  end
+
   # SSH Agent Forwarding
   config.ssh.forward_agent = true
 end
