@@ -1,3 +1,5 @@
 .vagrant
+db/*
+!db/.gitkeep
 sites/*
 !sites/.gitkeep
