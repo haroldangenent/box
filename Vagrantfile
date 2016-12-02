@@ -15,6 +15,12 @@ Vagrant.configure(2) do |config|
   # SSH Agent Forwarding
   config.ssh.forward_agent = true
 
+  # Fix no tty, see mitchellh/vagrant#1673
+  config.vm.provision "fix-no-tty", type: "shell" do |s|
+      s.privileged = false
+      s.inline = "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile"
+  end
+
   # Provisioning
   config.vm.provision :shell, inline: "bash /vagrant/provision/php/install-php7.sh"
   config.vm.provision :shell, inline: "bash /vagrant/provision/db/import.sh"
