@@ -16,11 +16,11 @@ Vagrant.configure(2) do |config|
   config.ssh.forward_agent = true
 
   # Provisioning
-  config.vm.provision :shell, inline: "bash /vagrant/config/db/import.sh"
+  config.vm.provision :shell, inline: "bash /vagrant/provision/db/import.sh"
   config.vm.provision :shell, inline: "sudo service apache2 reload", run: "always"
 
   # Triggers
   config.trigger.before [:halt, :destroy] do
-    run "vagrant ssh -c 'bash /vagrant/config/db/export.sh'"
+    run "vagrant ssh -c 'bash /vagrant/provision/db/export.sh'"
   end
 end
