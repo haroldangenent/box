@@ -3,7 +3,6 @@ Vagrant.configure(2) do |config|
   config.vm.network "private_network", ip: "192.168.33.10"
 
   config.vm.synced_folder "../", "/var/www", :mount_options => ["dmode=777,fmode=666"]
-  config.vm.synced_folder "sites/", "/etc/apache2/sites-available"
   config.vm.synced_folder "sites/", "/etc/apache2/sites-enabled"
 
   # Virtualbox config
@@ -15,4 +14,7 @@ Vagrant.configure(2) do |config|
 
   # SSH Agent Forwarding
   config.ssh.forward_agent = true
+
+  # Provisioning
+  config.vm.provision :shell, inline: "sudo service apache2 reload", run: "always"
 end
