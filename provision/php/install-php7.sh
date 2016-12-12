@@ -1,7 +1,7 @@
 echo 'Installing PHP 7.0...'
 echo 'Updating apt-get repositories...'
 sudo apt-get update &> /dev/null
-echo 'Added php7.0...'
+echo 'Adding php7.0...'
 sudo add-apt-repository ppa:ondrej/php -y &> /dev/null
 echo 'Installing php7.0...'
 sudo apt-get install php7.0 -y &> /dev/null
