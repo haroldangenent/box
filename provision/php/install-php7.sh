@@ -1,4 +1,4 @@
-echo 'Installing PHP 7.0...'
+echo 'Installing php7.0...'
 echo 'Updating apt-get repositories...'
 sudo apt-get update &> /dev/null
 echo 'Adding php7.0...'
