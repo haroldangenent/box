@@ -15,4 +15,4 @@ echo 'Enabling php7.0...'
 sudo a2enmod php7.0 &> /dev/null
 echo 'Restarting webserver...'
 sudo service apache2 restart &> /dev/null
-echo 'Finished installing PHP 7.0.'
+echo 'Finished installing php7.0.'
