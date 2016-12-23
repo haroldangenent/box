@@ -23,6 +23,7 @@ Vagrant.configure(2) do |config|
 
   # Provisioning
   config.vm.provision :shell, inline: "bash /vagrant/provision/php/install-php7.sh"
+  config.vm.provision :shell, inline: "bash /vagrant/provision/php/xdebug.sh"
   config.vm.provision :shell, privileged: false, inline: "bash /vagrant/provision/tools/bundler.sh"
   config.vm.provision :shell, inline: "bash /vagrant/provision/tools/composer.sh"
   config.vm.provision :shell, inline: "bash /vagrant/provision/tools/subversion.sh"
