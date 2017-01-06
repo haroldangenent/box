@@ -4,6 +4,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.synced_folder "../", "/var/www", :mount_options => ["dmode=777,fmode=777"]
   config.vm.synced_folder "sites/", "/etc/apache2/sites-enabled"
+  config.vm.synced_folder "~/bin", "/home/vagrant/bin"
 
   # Virtualbox config
   config.vm.provider :virtualbox do |vb|
