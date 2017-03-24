@@ -32,6 +32,10 @@ Vagrant.configure(2) do |config|
   config.vm.provision :shell, inline: "bash /vagrant/provision/vhosts/load.sh", run: "always"
 
   # Triggers
+  config.trigger.after [:up, :provision] do
+    run "./provision/vhosts/hosts-add.sh"
+  end
+
   config.trigger.before [:halt, :destroy] do
     run "vagrant ssh -c 'bash /vagrant/provision/db/export.sh'"
   end
