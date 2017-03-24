@@ -8,7 +8,7 @@ sudo apt-get install php7.1 -y &> /dev/null
 echo 'Updating apt-get repositories...'
 sudo apt-get update &> /dev/null
 echo 'Installing php7.1 modules...'
-sudo apt-get install php7.1-mysql libapache2-mod-php7.1 php7.1-xml php7.1-mbstring php7.1-curl php7.1-xdebug php7.1-gd -y &> /dev/null
+sudo apt-get install php7.1-mysql libapache2-mod-php7.1 php7.1-xml php7.1-mbstring php7.1-curl php7.1-xdebug php7.1-gd php7.1-soap -y &> /dev/null
 echo 'Disabling php5...'
 sudo a2dismod php5 &> /dev/null
 echo 'Enabling php7.1...'
