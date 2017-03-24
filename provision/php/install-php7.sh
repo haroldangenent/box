@@ -13,6 +13,8 @@ echo 'Disabling php5...'
 sudo a2dismod php5 &> /dev/null
 echo 'Enabling php7.1...'
 sudo a2enmod php7.1 &> /dev/null
+echo 'Copying config preferences...'
+cp /vagrant/config/php.ini /etc/php/7.1/apache2/conf.d/php.ini
 echo 'Restarting webserver...'
 sudo service apache2 restart &> /dev/null
 echo 'Finished installing php7.1.'
