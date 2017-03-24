@@ -1,8 +1,8 @@
+. $(dirname $0)/hosts-get.sh
+
 echo 'Cleaning up hostnames from /etc/hosts...'
 
-hostnames=$(vagrant ssh -c "/usr/sbin/apache2ctl -S 2>&1 | awk '/namevhost/' | awk '{print \$4;}'")
-aliases=$(vagrant ssh -c "/usr/sbin/apache2ctl -S 2>&1 | awk '/alias/' | awk '{print \$2;}'")
-hosts="$hostnames$aliases"
+hosts=$(getHosts)
 
 for host in $hosts
 do
