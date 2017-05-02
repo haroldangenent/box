@@ -1,6 +1,6 @@
 .vagrant
 db/*
 !db/.gitkeep
-provision/certificates
+provision/ssl/certificates
 sites/*
 !sites/.gitkeep
