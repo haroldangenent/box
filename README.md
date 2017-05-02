@@ -24,3 +24,16 @@ Opinionated Vagrant box, based on [Scotch Box](https://github.com/scotch-io/scot
 
 - [Vagrant](https://www.vagrantup.com/)
 - [vagrant-triggers](https://github.com/emyl/vagrant-triggers)
+
+## Usage
+
+### New project
+To add a project, create a config file inside the `sites/` directory. An example config file for a project that uses the `web/` directory as webroot:
+
+**example.conf**
+```
+<VirtualHost *:80>
+    ServerName www.example.localhost
+    DocumentRoot /var/www/example/web
+</VirtualHost>
+```
