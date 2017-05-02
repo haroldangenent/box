@@ -37,3 +37,12 @@ To add a project, create a config file inside the `sites/` directory. An example
     DocumentRoot /var/www/example/web
 </VirtualHost>
 ```
+
+### Reload vhosts
+You can run `vagrant provision --provision-with vhosts` to _only provision_ the available vhosts, without provisioning the entire box.
+
+## Resources
+Some useful resources for commonly needed features:
+
+- [Mailtrap.io](https://mailtrap.io/) for mail testing
+- [Generating SSL certificates](https://github.com/Varying-Vagrant-Vagrants/VVV/wiki/Site-specific-self-signed-SSL-certificates) for local SSL testing
