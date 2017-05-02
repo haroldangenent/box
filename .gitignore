@@ -4,3 +4,4 @@ db/*
 provision/ssl/certificates
 sites/*
 !sites/.gitkeep
+!sites/webgrind.conf

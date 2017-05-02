@@ -28,6 +28,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision :shell, privileged: false, inline: "bash /vagrant/provision/tools/bundler.sh"
   config.vm.provision :shell, inline: "bash /vagrant/provision/tools/composer.sh"
   config.vm.provision :shell, inline: "bash /vagrant/provision/tools/subversion.sh"
+  config.vm.provision :shell, inline: "bash /vagrant/provision/tools/webgrind.sh"
   config.vm.provision :shell, inline: "bash /vagrant/provision/tools/wp-cli.sh"
   config.vm.provision :shell, inline: "bash /vagrant/provision/db/import.sh"
   config.vm.provision :shell, inline: "bash /vagrant/provision/vhosts/load.sh", run: "always"
