@@ -8,7 +8,7 @@ Opinionated Vagrant box, based on [Scotch Box](https://github.com/scotch-io/scot
 - Database import on first `vagrant up`
 - PHP 7.1
 - [Xdebug](https://xdebug.org/)
-- [Webgrind](https://github.com/jokkedk/webgrind) (installed on `www.webgrind.localhost`)
+- [Webgrind](https://github.com/jokkedk/webgrind) (installed on `www.webgrind.test`)
 - [Bundler](http://bundler.io/)
 - [Composer](https://getcomposer.org/)
 - [Subversion](https://subversion.apache.org/)
@@ -33,7 +33,7 @@ To add a project, create a config file inside the `sites/` directory. An example
 **example.conf**
 ```
 <VirtualHost *:80>
-    ServerName www.example.localhost
+    ServerName www.example.test
     DocumentRoot /var/www/example/web
 </VirtualHost>
 ```
