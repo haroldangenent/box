@@ -41,9 +41,9 @@ Vagrant.configure(2) do |config|
   config.trigger.before [:halt, :destroy] do |trigger|
     trigger.run = {inline: "./provision/vhosts/hosts-clean.sh"}
 
-    answer = ask('Would you like to back-up all databases? [Y/n] ')
+    backup = ask('Would you like to back-up all databases? [Y/n]')
 
-    unless answer == 'n' || answer == 'N'
+    unless backup == 'n' || backup == 'N'
       trigger.run = {inline: "vagrant ssh -c 'bash /vagrant/provision/db/export.sh'"}
     end
   end
