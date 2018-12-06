@@ -34,17 +34,23 @@ Vagrant.configure(2) do |config|
   config.vm.provision :vhosts, type: :shell, inline: "bash /vagrant/provision/vhosts/load.sh", run: "always"
 
   # Triggers
-  config.trigger.after [:up, :provision] do
-    run "./provision/vhosts/hosts-add.sh"
+  config.trigger.after [:up, :provision] do |trigger|
+    trigger.run = { path: "./provision/vhosts/hosts-add.sh" }
   end
 
-  config.trigger.before [:halt, :destroy] do
-    run "./provision/vhosts/hosts-clean.sh"
+  askedBackup = false
 
-    answer = ask('Would you like to back-up all databases? [Y/n] ')
+  config.trigger.before [:halt, :destroy] do |trigger|
+    if !askedBackup && (ARGV[0] == 'halt' || ARGV[0] == 'destroy')
+      askedBackup = true
+      print 'Would you like to back-up all databases? [Y/n] '
+      answer = STDIN.gets.chomp
 
-    unless answer == 'n' || answer == 'N'
-      run "vagrant ssh -c 'bash /vagrant/provision/db/export.sh'"
+      unless answer == 'n' || answer == 'N'
+        trigger.run = { path: "./provision/db/export-and-hosts.sh" }
+      end
+    else
+      trigger.run = { path: "./provision/vhosts/hosts-clean.sh" }
     end
   end
 end
