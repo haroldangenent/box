@@ -22,8 +22,7 @@ Opinionated Vagrant box, based on [Scotch Box](https://github.com/scotch-io/scot
 
 ### Prerequisites
 
-- [Vagrant](https://www.vagrantup.com/)
-- [vagrant-triggers](https://github.com/emyl/vagrant-triggers)
+- [Vagrant 2.1+](https://www.vagrantup.com/)
 
 ## Usage
 
