@@ -48,9 +48,9 @@ Vagrant.configure(2) do |config|
 
       unless answer == 'n' || answer == 'N'
         trigger.run = { path: "./provision/db/export-and-hosts.sh" }
+      else
+        trigger.run = { path: "./provision/vhosts/hosts-clean.sh" }
       end
-    else
-      trigger.run = { path: "./provision/vhosts/hosts-clean.sh" }
     end
   end
 end
